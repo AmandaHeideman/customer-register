@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
+import Navigation from './components/Navigation';
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomersListPage from './pages/CustomersListPage';
@@ -8,6 +9,8 @@ import HomePage from './pages/HomePage';
 function App() {
   return (
     <div>
+      <Navigation />
+
       <Switch>
 
         <Route path="/customers/create">
