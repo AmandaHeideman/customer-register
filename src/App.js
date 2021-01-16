@@ -12,7 +12,7 @@ function App() {
     <div>
       <Navigation />
 
-      <UserData />
+      {localStorage.getItem("WEBB20")? <UserData /> : <> </>}
 
       <Switch>
 
