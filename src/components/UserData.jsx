@@ -8,7 +8,7 @@ export default function UserData() {
   
   function getMe() {
     const url = "https://frebi.willandskill.eu/api/v1/me/"
-    const token = localStorage.getItem("WEBB20")
+    const token = localStorage.getItem("Amanda")
     fetch(url, {
       headers: {
         "Content-Type": "application/json",

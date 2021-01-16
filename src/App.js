@@ -12,17 +12,19 @@ function App() {
     <div>
       <Navigation />
 
-      {localStorage.getItem("WEBB20")? <UserData /> : <> </>}
+      {localStorage.getItem("Amanda")? <UserData /> : <> </>}
 
       <Switch>
 
-        <Route path="/customers/create">
-          <CustomerCreatePage />
-        </Route>
+        <Route 
+          path="/customers/create"
+          component={CustomerCreatePage}
+        />
 
-        <Route path="/customers/:id">
-          <CustomerDetailPage />
-        </Route>
+        <Route 
+          path="/customers/:id" 
+          component={CustomerDetailPage} 
+        />
 
         <Route path="/customers">
           <CustomersListPage />

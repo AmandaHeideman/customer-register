@@ -30,7 +30,7 @@ export default function LogIn() {
     })
     .then(res => res.json())
     .then(data => {
-      localStorage.setItem("WEBB20", data.token)
+      localStorage.setItem("Amanda", data.token)
       history.push('/customers')
     })
   }
@@ -42,7 +42,7 @@ export default function LogIn() {
         <label>Email: </label>
         <input type="text" onChange={handleOnChange} value={formInput.email} />
         <label>Password: </label>
-        <input type="password" onChange={handleOnChange} value= {formInput.password} />
+        <input onChange={handleOnChange} value= {formInput.password} />
         <button type="submit">Log in</button>
       </form>
     </div>

@@ -7,7 +7,7 @@ export default function HomePage() {
   const history = useHistory();
   return (
     <div>
-      {localStorage.getItem("WEBB20") ? history.push('/customers') : <LogIn />}
+      {localStorage.getItem("Amanda") ? history.push('/customers') : <LogIn />}
     </div>
   )
 }
