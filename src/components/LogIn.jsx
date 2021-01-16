@@ -39,12 +39,10 @@ export default function LogIn() {
     <div>
       <p>Log In</p>
       <form onSubmit={handleOnSubmit}>
-        <label>Email:
-          <input type="text" onChange={handleOnChange} value={formInput.email} />
-        </label>
-        <label>Password:
-          <input type="password" onChange={handleOnChange} value= {formInput.password} />
-        </label>
+        <label>Email: </label>
+        <input type="text" onChange={handleOnChange} value={formInput.email} />
+        <label>Password: </label>
+        <input type="password" onChange={handleOnChange} value= {formInput.password} />
         <button type="submit">Log in</button>
       </form>
     </div>
