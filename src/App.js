@@ -5,6 +5,8 @@ import UserData from './components/UserData';
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomersListPage from './pages/CustomersListPage';
+import CustomerEditPage from './pages/CustomerEditPage';
+
 import HomePage from './pages/HomePage';
 
 function App() {
@@ -19,6 +21,11 @@ function App() {
         <Route 
           path="/customers/create"
           component={CustomerCreatePage}
+        />
+
+        <Route 
+          path="/customers/:id/edit"
+          component={CustomerEditPage}
         />
 
         <Route 

@@ -1,5 +1,7 @@
-import React, {useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
+import ButtonStyled from '../components/ButtonStyled';
+import DivStyled from '../components/DivStyled';
 
 export default function CustomerCreatePage() {
   const [formData, setFormData] = useState({})
@@ -41,19 +43,19 @@ export default function CustomerCreatePage() {
   }
 
   return (
-    <div>
+    <DivStyled>
       <h1>Create Customer</h1>
       <form onSubmit={handleOnSubmit}>
         {renderInput("name", "Customer Name")}
-        {renderInput("email", "Customer Email", "email")}
         {renderInput("organisationNr", "Organisation Number")}
-        {renderInput("paymentTerm", "Payment Term", "number")}
-        {renderInput("phoneNumber", "Phone Number", "tel")}
-        {renderInput("reference", "Reference")}
         {renderInput("vatNr", "Vat Number")}
+        {renderInput("reference", "Reference")}
+        {renderInput("paymentTerm", "Payment Term", "number")}
         {renderInput("website", "Website", "url")}
-        <button type="submit">Create Customer</button>
+        {renderInput("email", "Customer Email", "email")}
+        {renderInput("phoneNumber", "Phone Number", "tel")}
+        <ButtonStyled type="submit">Create Customer</ButtonStyled>
       </form>
-    </div>
+    </DivStyled>
   )
 }

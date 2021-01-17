@@ -1,6 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+import styled from 'styled-components';
+import UserDivStyled from './UserDivStyled';
 
 export default function UserData() {
+  const UserDataStyled = styled(UserDivStyled)`
+    width: 30%;
+    float: right;
+    margin: 30px;
+  `
+
   const [me, setMe] = useState({});
   useEffect( () => {
     getMe();
@@ -19,9 +27,9 @@ export default function UserData() {
     .then(data => setMe(data))
   }
   return (
-    <div>
+    <UserDataStyled>
       <p>Name: {me.firstName} {me.lastName}</p>
       <p>Email: {me.email}</p>
-    </div>
+    </UserDataStyled>
   )
 }

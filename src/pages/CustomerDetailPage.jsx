@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useHistory, Link} from 'react-router-dom';
+import ButtonStyled from '../components/ButtonStyled';
+import DivStyled from '../components/DivStyled';
 
 export default function CustomerDetailPage(props) {
   const customerId = props.match.params.id;
@@ -37,7 +39,7 @@ export default function CustomerDetailPage(props) {
   }, []);
 
   return (
-    <div>
+    <DivStyled>
       {customerItem ? (
         <div>
           <h1>{customerItem.name}</h1>
@@ -46,20 +48,20 @@ export default function CustomerDetailPage(props) {
             <td>{customerItem.organisationNr}</td>
           </tr>
           <tr>
-            <td>Payment Term: </td>
-            <td>{customerItem.paymentTerm}</td>
-          </tr>
-          <tr>
-            <td>Phone Number: </td>
-            <td>{customerItem.phoneNumber}</td>
+            <td>Vat Nr: </td>
+            <td>{customerItem.vatNr}</td>
           </tr>
           <tr>
             <td>Reference: </td>
             <td>{customerItem.reference}</td>
           </tr>
           <tr>
-            <td>Vat Nr: </td>
-            <td>{customerItem.vatNr}</td>
+            <td>Payment Term: </td>
+            <td>{customerItem.paymentTerm}</td>
+          </tr>
+          <tr>
+            <td>Website: </td>
+            <td>{customerItem.website}</td>
           </tr>
           <tr>
             <td>Email: </td>
@@ -70,15 +72,15 @@ export default function CustomerDetailPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Website: </td>
-            <td>{customerItem.website}</td>
+            <td>Phone Number: </td>
+            <td>{customerItem.phoneNumber}</td>
           </tr>
-          <button onClick={deleteCustomer}>Delete Customer</button>
-          <Link to={`/customers/${customerId}/edit`}><button>Edit customer</button></Link>
+          <ButtonStyled onClick={deleteCustomer}>Delete Customer</ButtonStyled>
+          <Link to={`/customers/${customerId}/edit`}><ButtonStyled>Edit customer</ButtonStyled></Link>
         </div>
       ) : (
         <span>Loading...</span>
       )}
-    </div>
+    </DivStyled>
   );
 }

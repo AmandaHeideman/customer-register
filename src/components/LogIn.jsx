@@ -1,7 +1,14 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import UserDivStyled from './UserDivStyled';
+import styled from 'styled-components';
+import ButtonStyled from './ButtonStyled';
 
 export default function LogIn() {
+  const LoginStyled = styled(UserDivStyled)`
+    margin: auto;
+  `
+
   const [formInput, setFormInput] = useState({
     email: "Amanda.Heideman@yh.nackademin.se",
     password: "javascriptoramverk"
@@ -32,19 +39,20 @@ export default function LogIn() {
     .then(data => {
       localStorage.setItem("Amanda", data.token)
       history.push('/customers')
+      window.location.reload();
     })
   }
 
   return (
-    <div>
-      <p>Log In</p>
+    <LoginStyled>
+      <h1>Log In</h1>
       <form onSubmit={handleOnSubmit}>
         <label>Email: </label>
         <input type="text" onChange={handleOnChange} value={formInput.email} />
         <label>Password: </label>
-        <input onChange={handleOnChange} value= {formInput.password} />
-        <button type="submit">Log in</button>
+        <input type="password" onChange={handleOnChange} value= {formInput.password} />
+        <ButtonStyled type="submit">Log in</ButtonStyled>
       </form>
-    </div>
+    </LoginStyled>
   )
 }

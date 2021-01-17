@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link} from "react-router-dom";
+import ButtonStyled from '../components/ButtonStyled';
+import DivStyled from '../components/DivStyled';
 
 export default function CustomerListPage() {
   const [customerList, setCustomerList] = useState([]);
-  const history = useHistory();
 
   useEffect(() => {
     getCustomerList();
@@ -22,26 +23,26 @@ export default function CustomerListPage() {
       .then((data) => setCustomerList(data.results));
   }
 
-  function handleOnSubmit(e) {
-    e.preventDefault();
-    history.push("/customers/create");
-  }
   return (
-    <div>
+    <DivStyled>
+      <h1>Customers</h1>
       {customerList[0] ? (
-        customerList.map((item) => {
-          return (
-            <h3>
-              <Link to={`/customers/${item.id}`}>{item.name}</Link>
-            </h3>
-          );
-        })
+        <>
+          {customerList.map((item) => {
+            return (
+              <h3>
+                <Link to={`/customers/${item.id}`}>{item.name}</Link>
+              </h3>
+            );
+          })}
+          <Link to={`/customers/create`}><ButtonStyled>Create customer</ButtonStyled></Link>
+        </>
       ) : (
-        <form onSubmit={handleOnSubmit}>
+        <>
           <p>No existing customers</p>
-          <button type="submit">Create customer</button>
-        </form>
+          <Link to={`/customers/create`}><ButtonStyled>Create customer</ButtonStyled></Link>
+        </>
       )}
-    </div>
+    </DivStyled>
   );
 }
