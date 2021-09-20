@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link} from "react-router-dom";
 import ButtonStyled from '../components/ButtonStyled';
 import DivStyled from '../components/DivStyled';
+import {CustomerContext} from '../contexts/CustomerContext';
 
 export default function CustomerListPage() {
   const [customerList, setCustomerList] = useState([]);
+  const {customerData, setCustomerData} = useContext(CustomerContext);
 
   useEffect(() => {
     getCustomerList();
+    
   }, []);
 
   function getCustomerList() {
@@ -22,6 +25,7 @@ export default function CustomerListPage() {
       .then((res) => res.json())
       .then((data) => setCustomerList(data.results));
   }
+  console.log(customerData);
 
   return (
     <DivStyled>
